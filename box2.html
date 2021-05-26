@@ -53,13 +53,16 @@
     <div id="notebook">
         <div class="notebook"></div>
         <div class="input">
-            <textarea>test </textarea>
+            <textarea v-model="content"> </textarea>
         </div>
         <div class="preview"></div>
     </div>
     <script>
        var vm=new Vue({
-           el:'#notebook'
+           el:'#notebook',
+           data:{
+               content:'test'
+           }
        })
     </script>
 </body>
