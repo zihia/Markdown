@@ -12,14 +12,11 @@
             margin: 0;
         }
         #notebook{
-           display: -webkit-flex; 
             display: flex;
         }
         .notebook,.input,.preview {
             /* border: 1px solid violet; */
             height: 1000px;
-          
-            float: left;
         }
         .notebook{
             background-color: teal;
@@ -29,7 +26,7 @@
             top: 0; */
         }
         textarea{
-            width: 100%;
+            width: 90%;
             height: 100%;
             background-color: tomato;
         }
@@ -55,13 +52,22 @@
         <div class="input">
             <textarea v-model="content"> </textarea>
         </div>
-        <div class="preview"></div>
+        <div class="preview" v-html="markdownPreview">
+        </div>
     </div>
     <script>
+    //   const html=maeked('# hello')
+    //   console.log(html)
+    //   const html_strong
        var vm=new Vue({
            el:'#notebook',
            data:{
                content:'test'
+           },
+           computed:{
+               markdownPreview(){
+                   return marked(this.content)
+               }
            }
        })
     </script>
