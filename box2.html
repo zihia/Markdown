@@ -58,17 +58,28 @@
     <script>
     //   const html=maeked('# hello')
     //   console.log(html)
-    //   const html_strong
+    //   const html_strong=marked('**notice**')
+    //   console.log(html_strong)
        var vm=new Vue({
-           el:'#notebook',
+           el:"#notebook",
            data:{
-               content:'test'
+               content:''
            },
            computed:{
                markdownPreview(){
                    return marked(this.content)
                }
+           },
+           watch:{
+               content(val,oldval){
+                   console.log("new:",val,"old:",oldval)
+                   localStorage.setItem('content',val)
+               }
+           },
+           created(){
+            this.content=localStorage.getItem('content')
            }
+
        })
     </script>
 </body>
