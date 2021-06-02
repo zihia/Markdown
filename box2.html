@@ -48,7 +48,9 @@
 </head>
 <body>
     <div id="notebook">
-        <div class="notebook"></div>
+        <div class="notebook">
+            <button v-bind:title="notes.length" v-on:click="addNote">add Note</button>
+        </div>
         <div class="input">
             <textarea v-model="content"> </textarea>
         </div>
@@ -78,8 +80,22 @@
            },
            created(){
             this.content=localStorage.getItem('content')
-           }
-
+           },
+        methods:{
+            addNote(){
+                console.log("add note is called")
+                const time=Date.now()
+                // console.log(String(time))
+                const note={
+                    id:String(time),
+                    title:'New note'+(this.notes.length+1),
+                    content:'**hi**',
+                    created:time,
+                    favorite:false
+                }
+                this.notes.push(note)
+            }
+        }
        })
     </script>
 </body>
