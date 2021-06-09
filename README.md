@@ -2,8 +2,8 @@
 This is markdown.
 github下载
 -- git config –-global user.email 2694587976qq.com
--- git config –global user.name “zihia”
--- git config –global url.”https://github.com.cnpmjs.org/”. insteadOf “https://github.com/”
+-- git config -–global user.name “zihia”
+-- git config –-global url."https://github.com.cnpmjs.org/".insteadOf “https://github.com/”
 --(git config –global --list)
 --git clone https://github.com/zihia/Markdown.git
 
